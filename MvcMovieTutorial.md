@@ -2,10 +2,47 @@
 
 The ASP.NET Core documentation includes a 
 [tutorial](https://docs.microsoft.com/en-us/aspnet/core/tutorials/first-mvc-app/start-mvc?view=aspnetcore-5.0&tabs=visual-studio) 
-on how to build a simple movie database.
+on how to build a simple movie database, MvcMovie.
 
-This tutorial guides you through building the same tutorial in
-F# and the [Saturn](https://saturnframework.org/) web framework.
+Some time ago, I implemented [MvcMovie in F#](https://github.com/dharmatech/mvc-movie-fs).
+This is basically the same as MvcMovie except the model and controller parts are written in F#.
+The views are still in in Razor/C#.
+
+Then I made [MvcMovieGiraffe](https://github.com/dharmatech/mvc-movie-giraffe),
+which is a port of MvcMovie to the [Giraffe](https://github.com/giraffe-fsharp/Giraffe) web framework.
+This allows us to have the whole app in F#, including the views! Giraffe is what I would consider a 'low-level'
+web framework in that it doesn't include a notion of MVC. 
+It also doesn't provide [Tag Helpers](https://github.com/giraffe-fsharp/Giraffe/discussions/457).
+
+That brings us to [Saturn](https://saturnframework.org/).
+It's an MVC web framework that is layered on top of Giraffe.
+I was curious about Saturn and so decided to make MvcMovieSaturn.
+
+With MVC web apps there are so many steps involved in making even a simple app.
+After I'd made MvcMovieFs and MvcMovieGiraffe, I had a working app
+But later when I'd return to the apps, I was left wondering, "how did I even build this?".
+
+This time, I wanted to document the steps involved in building MvcMovieSaturn, for my own reference later.
+This page documents these steps.
+
+## About this document
+
+I did not write this markdown document. I wrote a program which wrote this document.
+
+Let's say I'd manually written out the steps in markdown.
+What if I went in and changed some steps? How would I know that the steps are even valid anymore without going through all the steps again?
+
+What I needed was an *executable* and *unit tested* document.
+
+You can view that program here:
+
+- [MvcMoviewSaturn-unit-tested-tutorial.ps1](https://github.com/dharmatech/MvcMovieSaturnTutorial/blob/main/MvcMoviewSaturn-unit-tested-tutorial.ps1)
+
+It's written in PowerShell.
+
+If I execute that program, it goes through all the steps below to generate `MvcMovieSaturn`.
+
+The program that converts the PowerShell source to markdown is [here](https://github.com/dharmatech/MvcMovieSaturnTutorial/blob/main/convert-to-markdown.ps1).
 
 
 
