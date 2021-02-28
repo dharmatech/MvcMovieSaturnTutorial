@@ -21,46 +21,43 @@ cd C:\Users\dharm\Dropbox\Documents\VisualStudio\MvcMovieSaturn
 
 Create the project directory and change to it.
 
-```sh
-mkdir MvcMovieSaturn
+    mkdir MvcMovieSaturn
 
-cd MvcMovieSaturn
-```
-
+    cd MvcMovieSaturn
+    
 Setup git.
 
-```shell
-git init
+    git init
 
-dotnet new gitignore
+    dotnet new gitignore
 
-git add .
+    git add .
 
-git commit -m 'Initial checkin'
-```
+    git commit -m 'Initial checkin'
+
+Install the Saturn template
+
+    dotnet new -i Saturn.Template
 
 Create a new saturn project.
 
-```sh
-dotnet new saturn
+    dotnet new saturn
 
-Remove-Item global.json
+    Remove-Item global.json
 
-dotnet tool restore
+    dotnet tool restore
 
-git add . 
+    git add . 
 
-git commit -m 'dotnet new saturn'
-```
+    git commit -m 'dotnet new saturn'
 
 Use `saturn gen` to generate project files from a template.
 
-```sh
-dotnet saturn gen Movie Movies Id:int Title:string ReleaseDate:DateTime Genre:string Price:decimal Rating:string
+    dotnet saturn gen Movie Movies Id:int Title:string ReleaseDate:DateTime Genre:string Price:decimal Rating:string
 
-dotnet saturn migration
-```
+    dotnet saturn migration
 
+# Build issues
 
 At this point, if you run the program:
 
@@ -132,6 +129,11 @@ o.Value.Id
 ```
 
 
+# SQLite Autoincrement
+
+Saturn currently uses SQLite as its database.
+Now that we've setup `Id` to be an integer, let's also make it 
+[autoincrement](https://sqlite.org/autoinc.html).
 
 
 ---
@@ -153,6 +155,8 @@ Rebuild the database
     Remove-Item .\src\MvcMovieSaturn\database.sqlite
 
     dotnet saturn migration
+
+# Router.fs
 
 
 ---
@@ -446,7 +450,7 @@ run()
 ```
 
 
-test-app
+    test-app
 
 # Id field in forms
 
