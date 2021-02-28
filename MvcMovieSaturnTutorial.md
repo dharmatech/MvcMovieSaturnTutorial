@@ -36,7 +36,7 @@ What I needed was an *executable* and *unit tested* document.
 
 You can view that program here:
 
-- [MvcMoviewSaturn-unit-tested-tutorial.ps1](https://github.com/dharmatech/MvcMovieSaturnTutorial/blob/main/MvcMoviewSaturn-unit-tested-tutorial.ps1)
+- [MvcMovieSaturn-unit-tested-tutorial.ps1](https://github.com/dharmatech/MvcMovieSaturnTutorial/blob/main/MvcMovieSaturn-unit-tested-tutorial.ps1)
 
 It's written in PowerShell.
 
