@@ -1,7 +1,7 @@
 ﻿
 param([switch]$gist)
 
-(Get-Content .\MvcMoviewSaturn-unit-tested-tutorial.ps1 -Raw) -replace '(?s)# IGNORE-START.*?# IGNORE-END', '' | Set-Content pass-1.ps1
+(Get-Content .\MvcMovieSaturn-unit-tested-tutorial.ps1 -Raw) -replace '(?s)# IGNORE-START.*?# IGNORE-END', '' | Set-Content pass-1.ps1
 
 (Get-Content .\pass-1.ps1 -Raw) -replace "\`$file = '(.*?)'", ("`n---`n" + 'File: `$1`')  | Set-Content pass-1.ps1
 
@@ -25,11 +25,11 @@ param([switch]$gist)
     elseif ($_ -match 'IGNORE-LINE-FOR-MARKDOWN') { }
     else { $_ }
 
-} | Set-Content MvcMovieTutorial.md
+} | Set-Content MvcMovieSaturnTutorial.md
 
 if ($gist)
 {
-    $result = gh gist create MvcMovieTutorial.md
+    $result = gh gist create MvcMovieSaturnTutorial.md
     
     Start-Process $result
 }
